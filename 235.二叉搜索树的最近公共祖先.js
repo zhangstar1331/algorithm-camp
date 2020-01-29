@@ -18,7 +18,7 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
+var lowestCommonAncestor1 = function(root, p, q) {
     // 二叉搜索树可以通过大小来判定
     // 如果树节点的值位于p和q两节点值中间或与某个节点相等，则该节点一定是两节点最近父节点
     // 否则如果树节点值大于两节点值，则两节点都位于树节点的左子树，将其左节点作为当前节点进行搜索
@@ -30,6 +30,19 @@ var lowestCommonAncestor = function(root, p, q) {
     }else{
         // 找到了
         return root
+    }
+};
+
+var lowestCommonAncestor = function(root, p, q) {
+    // 非递归
+    while(root){
+        if(p.val<root.val && q.val<root.val){
+            root = root.left
+        }else if(p.val>root.val && q.val>root.val){
+            root = root.right
+        }else{
+            return root
+        }
     }
 };
 // @lc code=end

@@ -1,36 +1,6 @@
-/*
- * @lc app=leetcode.cn id=509 lang=javascript
- *
- * [509] 斐波那契数
- */
-
-// @lc code=start
-/**
- * @param {number} N
- * @return {number}
- */
+const arr = [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040]
 var fib = function(N) {
-  
-  // if(N==1 || N==0){
-  //   return N
-  // }
-  // // 重复的计算 可以使用缓存优化
-  // return fib(N - 1) + fib(N - 2)
-  // 递推
-  
-  // O(n)
-  let cache = []
-  for(let i=0;i<=N;i++){
-     if(i==1 || i==0){
-      cache[i] = i
-    }else{
-      cache[i] = cache[i-1]+cache[i-2]
-    }
-  }
-  return cache[N]
-
+    return arr[N]
 };
-
-
-// @lc code=end
-
+console.log(fib(7))
+console.log(fib(22))

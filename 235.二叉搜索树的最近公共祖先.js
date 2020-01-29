@@ -23,6 +23,16 @@ var lowestCommonAncestor = function(root, p, q) {
     // 如果树节点的值位于p和q两节点值中间或与某个节点相等，则该节点一定是两节点最近父节点
     // 否则如果树节点值大于两节点值，则两节点都位于树节点的左子树，将其左节点作为当前节点进行搜索
     // 同理如果树节点值小于两节点值，则两节点都位于树节点的右子树，将其右节点作为当前节点进行搜索
+    if(p.val>root.val && q.val>root.val){
+        return lowestCommonAncestor(root.right,p,q)
+    }else if (p.val<root.val && q.val<root.val){
+        return lowestCommonAncestor(root.left,p,q)
+
+    }else{
+        // 找到了
+        return root
+    }
+
     
 };
 // @lc code=end

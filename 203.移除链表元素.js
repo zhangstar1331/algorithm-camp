@@ -18,13 +18,16 @@
  * @return {ListNode}
  */
 var removeElements = function(head, val) {
-  // 空的head节点，规避if else 
+
+  // a=>b=>c=>d
+  // 链表的修改，是不是第一个 逻辑不同
+  // 哨兵=>a=>b=>c=>d
   let ele = {
     next:head
   }
   let cur = ele
   while(cur.next){
-    if(cur.next.val===val){
+    if(cur.next.val == val){
       cur.next = cur.next.next
     }else{
       cur = cur.next

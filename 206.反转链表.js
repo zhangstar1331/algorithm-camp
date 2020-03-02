@@ -17,29 +17,18 @@
  * @return {ListNode}
  */
 var reverseList = function(head){
-  // 骚气一些
-  let [cur, prev] = [head, null]
-  while(cur!=null){
-    // 中间存储
-    [cur.next, prev,cur] = [prev,cur,cur.next]
-  }
-  return prev
-}
-var reverseList1 = function (head) {
-
-  let cur  = head
+  let cur = head
   let prev = null
 
-  while(cur!=null) {
-    next =cur.next
-    cur.next = prev
-    prev = cur
-    cur = next
-
+  while(cur!==null){
+    // 解构
+    [cur.next, prev, cur] = [prev, cur, cur.next]
+    // let next = cur.next
+    // cur.next = prev
+    // prev = cur
+    // cur = next
   }
-
   return prev
-
 };
 // @lc code=end
 

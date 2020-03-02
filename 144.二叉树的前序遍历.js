@@ -17,29 +17,33 @@
  * @return {number[]}
  */
 var preorderTraversal1 = function(root,arr=[]) {
-  if (root) {
-    arr.push(root.val);
-
-    preorderTraversal(root.left, arr);
-    preorderTraversal(root.right, arr);
+  if(root){
+    // 先处理自己，再处理左右
+    arr.push(root.val)
+    preorderTraversal(root.left, arr)
+    preorderTraversal(root.right, arr)
   }
-  return arr;
+  return arr
 };
-var preorderTraversal = function(root,arr=[]) {
-  const result = [];
-  const stack = [];
-  let current = root;
-  while (current || stack.length > 0) {
-    while (current) {
-      result.push(current.val);
-
-      stack.push(current);
-      current = current.left;
+// 迭代
+var preorderTraversal = function(root) {
+  // 1. 开始遍历 有一个stack存储
+  // left入栈 直到left为空
+  // 节点出栈，右孩子为目标节点
+  let result = []
+  let stack = []
+  let cur = root
+  while(cur || stack.length>0){
+    while(cur){
+      result.push(cur.val)
+      stack.push(cur) // 后面要通过cur找他的right
+      cur= cur.left
     }
-    current = stack.pop();
-    current = current.right;
+    cur = stack.pop()
+    cur = cur.right
   }
-  return result;
+  return result
 };
+
 // @lc code=end
 

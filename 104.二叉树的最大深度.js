@@ -17,11 +17,11 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-  // 考虑下迭代
-    if(root==null){
-      return 0
-    }
-    return Math.max(maxDepth(root.left),maxDepth(root.right))+1
+  // @todo 迭代的形式
+  if(root==null){
+    return 0
+  }
+  return Math.max(maxDepth(root.left),maxDepth(root.right))+1
 };
 // @lc code=end
 

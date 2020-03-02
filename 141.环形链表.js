@@ -18,43 +18,44 @@
  * @return {boolean}
  */
 var hasCycle1 = function(head) {
-    // 哈希表存储。思路简单
-    let cache = new Set()
-    while(head){
-      if(cache.has(head)){
-        return true
-      }else{
-        cache.add(head)
-      }
-      head = head.next
-    }
-    return false
-}
-var hasCycle2 = function(head) {
-  // 快慢至真，快至真到了 就结束了
-  // 否则一定会碰上
-  let slow = head
-  let fast = head
-  while(fast && fast.next){
-    fast = fast.next.next
-    slow = slow.next
-    if (slow === fast) return true
-  }
-  return false
-}
-var hasCycle = function(head) {
-  // 挨揍的解法
-  // setTimeout(()=>{})
   let count = 1
   while(head){
     if(count>10000){
       return true
     }
+    count+=1
     head = head.next
-    count++
-
   }
-  return false 
+  // 遍历结束
+  return false
 }
+var hasCycle2 = function(head) {
+  // 你用对象Map也可以的
+  let cache = new Set()
+  while(head){
+    if(cache.has(head)){
+      return true
+    }else{
+      cache.add(head)
+    }
+    head = head.next
+  }
+  return false
+}
+
+var hasCycle = function(head) {
+  // 操场跑圈，只要仕个圈，跑的快的，一定会把跑的慢的套圈
+  let slow = head
+  let fast = head
+  while(fast && fast.next){
+    fast = fast.next.next
+    slow = slow.next
+    if(fast===slow){
+      return true
+    }
+  }
+  return false
+}
+
 // @lc code=end
 

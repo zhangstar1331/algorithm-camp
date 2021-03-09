@@ -52,5 +52,6 @@ function bubbleSort3(arr) {
     }
     return arr
 }
+
 const arr = [2, 5, 1, 7, 3, 5, 8, 3]
-console.log(bubbleSort3(arr))
+console.log(bubbleSort5(arr))

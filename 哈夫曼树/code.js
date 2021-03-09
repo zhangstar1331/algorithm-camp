@@ -72,7 +72,7 @@ function HuffmanTree() {
     }
 
     this.get_code = function(){
-        //获得最终的变长编码
+        //获得最终的变长编码                                                                                                                                                                                                                   
         var code_dict = {}
         get_code_from_tree(root, code_dict, "")
         return code_dict
